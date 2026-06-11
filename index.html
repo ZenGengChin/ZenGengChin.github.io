@@ -87,8 +87,10 @@
       list-style: none;
       padding: 0;
       margin: 18px 0 0;
-      display: grid;
-      gap: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 12px;
     }
 
     .bio {
@@ -183,6 +185,88 @@
       font-size: 13px;
     }
 
+    .awards {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .awards li {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .awards li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .award-year {
+      font-weight: 700;
+      color: var(--title);
+    }
+
+    .award-text p {
+      margin: 0 0 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .award-text p::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+    }
+
+    .award-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-group + .service-group {
+      margin-top: 14px;
+    }
+
+    .service-title {
+      margin: 0 0 6px;
+      font-weight: 700;
+      color: var(--title);
+    }
+
+    .service-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .service-list li {
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .service-list li::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+    }
+
     @media (max-width: 960px) {
       .page {
         grid-template-columns: 1fr;
@@ -202,6 +286,11 @@
     @media (max-width: 620px) {
       .pub {
         grid-template-columns: 1fr;
+      }
+
+      .awards li {
+        grid-template-columns: 1fr;
+        gap: 4px;
       }
 
       .name {
@@ -226,9 +315,14 @@
 
       <div class="bio">
         <strong>Biography</strong>
+
         <p>
-          I work on 3D human motion generation, human-object interaction, and generative models, with a focus on diffusion and scene-aware interaction modeling.
+          I am a Ph.D. candidate at the University of Western Australia, supervised by Prof. Ajmal Mian, A/Prof. Wei Liu, and Dr. Zeeshan Hayders. I obtained my Bachelor of Electrical and Computer Engineering from Shanghai Jiaotong University in 2020, and received my Master of Data Science with Distinction from the University of Western Australia in 2022.
+        <p>
+          I work on 3D human motion generation, human-object interaction, and generative models, with a focus on diffusion and scene-aware interaction modeling. I am also expierenced in Protein Inverse Folding.
         </p>
+          If you have excellent research for collaboration, feel free to get in touch!
+        <p>
       </div>
     </aside>
 
@@ -236,7 +330,8 @@
       <nav class="main-nav">
         <a href="#about">About</a>
         <a href="#publications">Publications</a>
-        <a href="#notes">Notes</a>
+        <a href="#awards">Awards</a>
+        <a href="#service">Academic Service</a>
       </nav>
 
       <section id="publications">
@@ -309,14 +404,66 @@
         </div>
       </section>
 
-      <section id="notes">
-        <h2>Notes</h2>
+      <section id="awards">
+        <h2>Awards</h2>
         <div class="card">
-          <p>Replace teaser images in <code>img/</code>.</p>
-          <p>Place your profile picture at <code>img/avatar.jpg</code>.</p>
-          <p>Fill in real project page and paper links.</p>
+          <ul class="awards">
+            <li>
+              <div class="award-year">2026</div>
+              <div class="award-text">
+                <p>Google Ph.D. Fellowship, UWA Nominee, Department of Computer Science and Software Engineering, University of Western Australia. 🎉🎉</p>
+                <p>CVPR Compute Transparency Champion Award, the highest recognition in CVPR 2026's Compute Reporting Initiative. 🎉🎉</p>
+                <p>Efficient CVPR Badge, as part of CVPR 2026's inaugural Compute Reporting Initiative. 🎉🎉</p>
+              </div>
+            </li>
+            <li>
+              <div class="award-year">2025</div>
+              <div class="award-text">
+                <p>Merit Presentation in High Degree Research Conference, Department of Computer Science and Software Engineering, University of Western Australia. 🎉🎉</p>
+              </div>
+            </li>
+            <li>
+              <div class="award-year">2024</div>
+              <div class="award-text">
+                <p>Excellent Presentation in High Degree Research Conference, Department of Computer Science and Software Engineering, University of Western Australia. 🎉🎉</p>
+              </div>
+            </li>
+            <li>
+              <div class="award-year">2022</div>
+              <div class="award-text">
+                <p>Master of Data Science with Distinction, University of Western Australia.</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
+
+      <section id="service">
+        <h2>Academic Service</h2>
+        <div class="card">
+          <div class="service-group">
+            <p class="service-title">Regular Peer Reviewer (Journals)</p>
+            <ul class="service-list">
+              <li>IEEE Transactions on Pattern Analysis and Machine Intelligence</li>
+              <li>IEEE Transactions on Multimedia</li>
+              <li>IEEE Transactions on Circuits and Systems for Video Technology</li>
+              <li>IEEE Transactions on Industrial Electronics</li>
+            </ul>
+          </div>
+          <div class="service-group">
+            <p class="service-title">Conference Reviewer</p>
+            <ul class="service-list">
+              <li>Conference on Neural Information Processing Systems (NeurIPS)</li>
+              <li>International Conference on Learning Representations (ICLR)</li>
+              <li>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</li>
+              <li>IEEE/CVF International Conference on Computer Vision (ICCV)</li>
+              <li>European Conference on Computer Vision (ECCV)</li>
+              <li>AAAI Conference on Artificial Intelligence (AAAI)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 </body>
